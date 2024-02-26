@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@800&display=swap');
+
+:root {
+    --coeff: calc(1vw + 1vh);
+    --shift: 0.15em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*::selection {
+    background-color: rgba(255, 255, 255, 0.164);
+    color: rgb(255 210 0);
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: rgb(24, 24, 24);
+    color: white;
+}
+
+header {
+    margin: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: calc(var(--coeff) * 0.75);
+}
+
+header p {
+    flex-basis: 30%;
+}
+
+header p:last-child {
+    text-align: right;
+}
+
+@media screen and (max-width: 550px) {
+    header {
+        flex-direction: column;
+        justify-content: start;
+    }
+    header p:last-child {
+        text-align: left;
+    }
+}
+
+main {
+    margin: 5rem auto;
+    width: 100%;
+}
+
+main .text-cutted:nth-child(1) {
+    transform: translateX(0.2em);
+}
+main .text-cutted:nth-child(2) {
+    transform: translateX(-0.5em);
+}
+main .text-cutted:nth-child(3) {
+    transform: translateX(0.5em);
+}
+
+@media screen and (max-width: 550px) {
+    main .text-cutted {
+        transform: none !important;
+    }
+}
+
+.text-cutted {
+    font-size: calc(var(--coeff) * 10);
+    line-height: 1em;
+    text-align: center;
+}
+
+.top {
+    height: 0.5em;
+    overflow: hidden;
+    transform: translateX(var(--shift));
+}
+
+#top2 {
+    /* overriding prop from .top */
+    transform: translateX(calc(var(--shift) * -1));
+}
+
+.bottom {
+    height: 0.5em;
+    overflow: hidden;
+}
+
+.bottom p {
+    margin: -0.5em;
+}
